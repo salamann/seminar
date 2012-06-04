@@ -1,41 +1,56 @@
-## git�Z�~�i�[�ł���Ă݂�������
+## gitセミナーでやってみたいこと
 
-* git�����[�J�����|�W�g���Ŏg���Ă݂�
-	* ���|�W�g��������Ă݂�
-	* �ǉ��ƃR�~�b�g
-	* �ύX������܂��ǉ�
-	* .gitignore
-* svn�ƈႤ�Ƃ���
-	* ���[�J�����|�W�g��
-	* �X�e�[�W���O�̈�
-	* �A�����郊�r�W�����ԍ��͂Ȃ�
-* bitbucket/github �Ƀ��|�W�g��������Ă݂�
-* �������
-	* clone
-	* pull
-		* origin, master
-	* ���[�J���u�����`
-	* rebase
-	* stash
+* gitをローカルリポジトリで使ってみる
+    * リポジトリを作ってみる
+    * 追加とコミット
+    * 変更したらまた追加
+    * .gitignore
+* svnと違うところ
+    * ローカルリポジトリ
+    * ステージング領域
+    * 連続するリビジョン番号はない
+* bitbucket/github にリポジトリを作ってみる
+* 共同作業
+    * clone
+    * pull
+        * origin, master
+    * ローカルブランチ
+    * rebase
+    * stash
 
-* svn�ƈႤ�Ƃ���(���̂Q)
-	* ����o�C�i���ɂ͌����Ȃ�
-	* ���r�W������u�����`�̊T�O
+* svnと違うところ(その２)
+    * 巨大バイナリには向かない
+    * リビジョンやブランチの概念
 
-## ���ׂȂ��Ƃ����Ȃ�����
+## 調べないといけないこと
 
-* TortoiseGit ���g���Ă݂�
-* Git GUI? �������������ׂ�
-* Git Extensions
-* �g���₷���}�[�W�c�[��
+* インストール
+    * MSYS Git
+* ブランチ/マージ/コンフリクト を試してみる
+* GUI
+    * TortoiseGit
+    * MSYS GitのGUI
+    * Git Extensions
+* 使いやすいマージツール
 
-## Git�̐ݒ�
+## Gitの設定
 
-### GUI�̕����R�[�h�ݒ�
+### 名前とe-mailの設定
 
-	git config --global gui.encoding utf-8
+    git config --global user.name "John Doe"
+    git config --global user.email "john.doe@example.com"   
 
-## �Q�l
+### GUIの文字コード設定
+
+    git config --global gui.encoding utf-8
+
+## TortoiseGit
+
+TortoiseGit は TortoiseSVN っぽく git を使うためのツール。
+コマンドライン版の git の機能とは一対一対応していない。
+ステージング領域とい概念がないようだ。
+
+## 参考
 
 * Pro Git
 * [Git Cheat Sheets JP](http://hail2u.net/documents/git-cheat-sheets-jp.html)
