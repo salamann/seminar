@@ -2,15 +2,14 @@
 
 * gitをローカルリポジトリで使ってみる
     * リポジトリを作ってみる
-	* 
     * 追加とコミット
     * .gitignore
     * 変更したらまた追加
-	* 追加の取り消し
+    * 追加の取り消し
     * ログを見てみる
-	* 優先度低
-		* 削除
-		* リネーム
+    * 優先度低
+        * 削除
+        * リネーム
 * svnと違うところ
     * ローカルリポジトリ
     * ステージング領域
@@ -25,8 +24,9 @@
     * stash
 
 * svnと違うところ(その２)
-	* リポジトリ全体をクローンしてしまう
-	    * 巨大バイナリには向かない
+    * 基本的に push する前に pull しないとダメ
+    * リポジトリ全体をクローンしてしまう
+        * 巨大バイナリには向かない
     * リビジョンやブランチの概念
 
 ## 調べないといけないこと
@@ -38,7 +38,7 @@
     * TortoiseGit
     * MSYS GitのGUI
     * Git Extensions
-* 使いやすいマージツール
+* 使いやすいGUI diff/マージツール
 
 ## Gitの設定
 
@@ -63,35 +63,42 @@ TortoiseGit は TortoiseSVN っぽく git を使うためのツール。
 * ブランチはポインタに過ぎないことがわからないかった
 * リモートブランチとかリモート追跡ブランチ
 * リモート追跡ブランチの設定方法や確認方法
-	* git branch -vv
-	* git branch --set-upstream BRANCHNANE origin/BRANCHNAME
+    * git branch -vv
+    * git branch --set-upstream BRANCHNANE origin/BRANCHNAME
 * ステージングを取り消す方法
-	* ステージング取り消しとコミットの取り消しが同じコマンドなのは怖い
+    * ステージング取り消しとコミットの取り消しが同じコマンドなのは怖い
 
 ## svn でよく使う機能との対比
 
 * よく使うもの
-	* 追加 -> コミット
-	* 修正 -> コミット
-	* 元に戻す
-	* 更新
-	* 削除
-	* ログ
-	* ベースと比較
-	* 特定のリビジョンとの比較
-	* 変更のチェック
+    * チェックアウト            (clone)
+    * 追加 -> コミット          (add -> commit [-> push])
+    * 修正 -> コミット          (add -> commit [-> push])
+    * 元に戻す
+        * 全体                  (git reset --hard)
+        * 特定のファイル        (git reset -- FILE; git checkout -- FILE)
+    * 更新                      (git pull)
+    * 削除                      (git rm FILE)
+    * ログ                      (git log [--oneline])
+    * 比較
+        * work <->index         (git diff -- PATH)
+        * index<->HEAD          (git diff --cahced -- PATH)
+    * 特定のリビジョンとの比較  (git diff COMMIT -- PATH)
+    * 変更のチェック            (git status)
 * 頻度が低いもの
-	* ブランチ
-	* タグ
-	* trunk -> branch マージ
-	* branch -> trunk マージ
-	* リネーム
+    * 特定のリビジョンのファイルに戻す  (git checkout COMMIT -- PATH)
+    * 無視設定                  (.gignore を編集)
+    * ブランチ作成              (git -b NEWBRANCH [COMIT or BRANCH])
+    * タグ
+    * trunk -> branch マージ    (git checkout BRANCH; git merge TRUNK)
+    * branch -> trunk マージ    (git checkout TRUNK; git merge BRANCH)
+    * リネーム                  (git mv OLDNAME NEWNAME; git commit -am "MESSAGE")
 
 ## svn で困っていること
 
 * ブランチ独自の変更とtrunkの取り込みの両立
-	* ライブラリバイナリコミット
-	* 特殊なワークアラウンド
+    * ライブラリバイナリをコミットする場合がある
+    * 特殊なワークアラウンドをブランチのみですることがある
 
 ## 参考
 
