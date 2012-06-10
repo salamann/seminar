@@ -145,5 +145,5 @@ followingOptions=-f revert-buffer-utf8n
 
 ## 参考
 
-* Pro Git
+* [Pro Git](http://git-scm.com/book/ja)
 * [Git Cheat Sheets JP](http://hail2u.net/documents/git-cheat-sheets-jp.html)
