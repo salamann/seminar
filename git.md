@@ -1,15 +1,15 @@
 ## 流れ
 
 * ローカルでsvnと同じように使ってみる
-	* インストール
-	* ローカルリポジトリの作成
+    * インストール
+    * ローカルリポジトリの作成
 * 共同作業してみる
 * ローカルブランチしてみる
 
 ## gitセミナーでやってみたいこと
 
 * 前置き
-	* svnに比べて面倒だよ。でも柔軟だよ。
+    * svnに比べて面倒だよ。でも柔軟だよ。
 * gitをローカルリポジトリで使ってみる
     * リポジトリを作ってみる
     * 追加とコミット
@@ -109,6 +109,39 @@ TortoiseGit は TortoiseSVN っぽく git を使うためのツール。
 * ブランチ独自の変更とtrunkの取り込みの両立
     * ライブラリバイナリをコミットする場合がある
     * 特殊なワークアラウンドをブランチのみですることがある
+
+## コメント編集用エディタとして xyzzy を使う
+
+### 要求 
+
+* 起動中のxyzzyで開きたい
+* バッファを削除したら編集終了にしたい
+* UTF-8で日本語コメントを書きたい
+
+### 設定
+
+* .xyzzy でUTF-8Nで開きなおす関数を定義しておく
+
+```
+(defun revert-buffer-utf8n ()
+  (interactive)
+  (revert-buffer *encoding-utf8n*))
+```
+
+* xyzzycli.exe を xyzzycli-utf8n.exe という名前でコピーする
+* xyzzycli-utf8n.ini という名前で次の内容のファイルを作る
+
+```
+[xyzzy]
+followingOptions=-f revert-buffer-utf8n
+```
+
+* .gitconfig に以下の内容を追加
+
+```
+[core]
+    editor = start //wait c:/xyzzy/xyzzycli-utf8n -wait
+```
 
 ## 参考
 
