@@ -143,6 +143,20 @@ followingOptions=-f revert-buffer-utf8n
     editor = start //wait c:/xyzzy/xyzzycli-utf8n -wait
 ```
 
+## WinMerge を difftool として使用する
+
+.gitconfig に以下のように記述する。
+
+```
+[diff]
+    guitool = winmerge
+    tool = winmerge
+[difftool "winmerge"]
+    cmd  = 'C:/Program Files/WinMerge/WinMergeU.exe' -e -ub -dl "Base" -dr "Mine" "$LOCAL" "$REMOTE"
+[difftool]
+    prompt =false
+```
+
 ## 参考
 
 * [Pro Git](http://git-scm.com/book/ja)
