@@ -10,9 +10,11 @@
 
 ## ローカルリポジトリを作る
 
+```
 $ mkdir git-renshu         # 作業用ディレクトリの作成
 $ cd git-renshu
 $ git init                 # リポジトリの作成
+```
 
 .git というディレクトリができているはず。
 
@@ -25,11 +27,15 @@ $ git init                 # リポジトリの作成
 
 hello.cpp を作る。
 
-> $ git add hello.cpp        # ファイルを管理対象として追加
-> $ git status               # 確認
+```
+$ git add hello.cpp        # ファイルを管理対象として追加
+$ git status               # 確認
+```
 
 ## コミットしてみる
 
-> $ git commit -m "コミットメッセージ"     # コミット
-> $ git status                             # 確認
-> $ git log                                # 確認
+```
+$ git commit -m "コミットメッセージ"     # コミット
+$ git status                             # 確認
+$ git log                                # ログ確認
+```

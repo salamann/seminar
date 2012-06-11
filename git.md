@@ -48,6 +48,7 @@
     * TortoiseGit
     * MSYS GitのGUI
     * Git Extensions
+    * GitHub for Windows
 * 使いやすいGUI diff/マージツール
 
 ## Gitの設定
@@ -66,6 +67,11 @@
 TortoiseGit は TortoiseSVN っぽく git を使うためのツール。
 コマンドライン版の git の機能とは一対一対応していない。
 ステージング領域とい概念がないようだ。
+
+## GitHub for Windows
+
+MSYS Git 直たたきしたときと GitHub for Windows を使ったときで動作が違うので、push するときにコンフリクトすることがあった(と思う)。
+GitHub for Windows では autocrlf = true になっているのに、自分でMSYS Git をインストールしたときに autocrlf = false としていたのが原因かな？
 
 ## 自分がひっかかったところ
 
