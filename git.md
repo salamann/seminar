@@ -1,3 +1,5 @@
+# メモ
+
 ## 流れ
 
 * ローカルで使ってみる
@@ -162,6 +164,12 @@ followingOptions=-f revert-buffer-utf8n
     cmd  = 'C:/Program Files/WinMerge/WinMergeU.exe' -e -ub -dl "Base" -dr "Mine" "$LOCAL" "$REMOTE"
 [difftool]
     prompt =false
+```
+
+次のようなコマンドで、 WinMerge を呼び出し可能。
+
+```
+$ git difftool [FILENAME]
 ```
 
 ## 参考文献
