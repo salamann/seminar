@@ -1,6 +1,6 @@
 # メモ
 
-## 流れ
+## やりたいこと
 
 * ローカルで使ってみる
     * インストール
@@ -96,7 +96,7 @@ GitHub for Windows では autocrlf = true になっているのに、自分でMS
     * 元に戻す
         * 全体                  (git reset --hard)
         * 特定のファイル        (git reset -- FILE; git checkout -- FILE)
-    * 更新                      (git pull)
+    * 更新                      (git pull --rebase)
     * 削除                      (git rm FILE)
     * ログ                      (git log [--oneline])
     * 比較
@@ -107,7 +107,7 @@ GitHub for Windows では autocrlf = true になっているのに、自分でMS
 * 頻度が低いもの
     * 特定のリビジョンのファイルに戻す  (git checkout COMMIT -- PATH)
     * 無視設定                  (.gitgnore を編集)
-    * ブランチ作成              (git branch NEWBRANCH [COMMIT or BRANCH])
+    * ブランチ作成              (git branch NEWBRANCH [COMMIT])
     * タグ                      (git tag TAG [COMMIT]
     * trunk -> branch マージ    (git checkout BRANCH; git merge TRUNK)
     * branch -> trunk マージ    (git checkout TRUNK; git merge BRANCH)
