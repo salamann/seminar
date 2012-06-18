@@ -40,7 +40,8 @@ Git-1.7.10-preview20120409.exe を使いましょう。
     $ git config --global user.name "Nobita Nobi"
     $ git config --global user.email "nobita.nobi@example.com"
 
-Windows7 の場合 c:/Users/Windowsのユーザー名/.gitconfig に上の情報が格納されます。
+Windows7 の場合 c:\Users\<username>\.gitconfig に上の情報が格納されます。
+WindowsXP の場合 C:\Documents and Settings\<username>\.gitconfig です。
 
     [user]
         name = Nobita Nobi
@@ -57,6 +58,8 @@ Windows7 の場合 c:/Users/Windowsのユーザー名/.gitconfig に上の情報
     Initialized empty Git repository in C:/home/work/git-renshu/.git/
 
 .git というディレクトリができているはずです。このディレクトリの中にローカルリポジトリが格納されています。
+
+Subversion の .svn は作業ベースのリビジョンの情報しか保持していませんが、 .git はリポジトリの全情報を持っています。
 
 ## ファイルを追加してみる
 
@@ -227,4 +230,3 @@ checkout はブランチの切り替えにも使いますが、それはまた�
     *.bak
 
 .gitignore 自体もリポジトリに入れておけます。
-
