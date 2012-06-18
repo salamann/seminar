@@ -12,7 +12,7 @@
 
 ## インストール
 
-インストールの選択肢
+### 何をインストールする？
 
 * MSYS Git のみ ← 今回はこれ！
 * GitExtensions
@@ -34,30 +34,24 @@
 
 コマンドプロンプトから次のように入力。
 
-```
-> git config --global user.name "Nobita Nobi"
-> git config --global user.email "nobita.nobi@example.com"
-```
+    $ git config --global user.name "Nobita Nobi"
+    $ git config --global user.email "nobita.nobi@example.com"
 
 Windows7 の場合 c:/Users/Windowsのユーザー名/.gitconfig に上の情報が格納されます。
 
-```
-[user]
-    name = Nobita Nobi
-    email = nobita.nobi@example.com
-```
+    [user]
+        name = Nobita Nobi
+        email = nobita.nobi@example.com
 
 直接 .gitconfig を編集してもかまいません。
 
 ## 使ってみる
 ### ローカルリポジトリを作る
 
-```
-> mkdir git-renshu         # 練習用ディレクトリの作成
-> cd git-renshu
-> git init                 # リポジトリの作成
-Initialized empty Git repository in C:/home/work/git-renshu/.git/
-```
+    $ mkdir git-renshu         # 練習用ディレクトリの作成
+    $ cd git-renshu
+    $ git init                 # リポジトリの作成
+    Initialized empty Git repository in C:/home/work/git-renshu/.git/
 
 .git というディレクトリができているはずです。このディレクトリの中にローカルリポジトリが格納されています。
 
@@ -65,20 +59,19 @@ Initialized empty Git repository in C:/home/work/git-renshu/.git/
 
 エディタで hello.cpp を作り、gitの管理対象にしてみましょう。
 
-```
-> git add hello.cpp        # ファイルを管理対象として追加
+    $ git add hello.cpp        # ファイルを管理対象として追加
+    
+    $ git status               # 確認
+    # On branch master
+    #
+    # Initial commit
+    #
+    # Changes to be committed:
+    #   (use "git rm --cached <file>..." to unstage)
+    #
+    #       new file:   hello.cpp
+    #
 
-> git status               # 確認
-# On branch master
-#
-# Initial commit
-#
-# Changes to be committed:
-#   (use "git rm --cached <file>..." to unstage)
-#
-#       new file:   hello.cpp
-#
-```
 
 "Changes to be commited" は 「コミット候補はこのファイルですよ」 という意味です。
 
@@ -86,28 +79,26 @@ Initialized empty Git repository in C:/home/work/git-renshu/.git/
 
 途中 warning がいろいろ出るが気にしないでください。
 
-```
-> git commit -m "hello.cpp を追加    # コミット
-[master (root-commit) 68088b6] hello.cpp を追加
- 1 file changed, 7 insertions(+)
- create mode 100644 hello.cpp
-
-Warning: Your console font probably doesn't support Unicode. If you experience s
-trange characters in the output, consider switching to a TrueType font such as L
-ucida Console!
-
-> git status                         # 確認
-# On branch master
-nothing to commit (working directory clean)
-
-> git log                            # ログ確認
-WARNING: terminal is not fully functional
-commit 68088b64d475c39f5cec034b2b050440d284796b
-Author: Nobita Nobi <nobita.nobi@example.com>
-Date:   Tue Jun 12 10:40:15 2012 +0900
-
-    hello.cpp を追加
-```
+    $ git commit -m "hello.cpp を追加    # コミット
+    [master (root-commit) 68088b6] hello.cpp を追加
+     1 file changed, 7 insertions(+)
+     create mode 100644 hello.cpp
+    
+    Warning: Your console font probably doesn't support Unicode. If     you experience s
+    trange characters in the output, consider switching to a     TrueType font such as L
+    ucida Console!
+    
+    $ git status                         # 確認
+    # On branch master
+    nothing to commit (working directory clean)
+    
+    $ git log                            # ログ確認
+    WARNING: terminal is not fully functional
+    commit 68088b64d475c39f5cec034b2b050440d284796b
+    Author: Nobita Nobi <nobita.nobi@example.com>
+    Date:   Tue Jun 12 10:40:15 2012 +0900
+    
+        hello.cpp を追加
 
 68088b64d475c39f5cec034b2b050440d284796b は Subversion でいうリビジョン番号のようなものです。(また後で説明します。)
 
@@ -115,52 +106,47 @@ Date:   Tue Jun 12 10:40:15 2012 +0900
 
 hello.cpp を編集してから次のようにしてみましょう。
 
-```
-> git status                        # 現状確認
-# On branch master
-# Changes not staged for commit:
-#   (use "git add <file>..." to update what will be committed)
-#   (use "git checkout -- <file>..." to discard changes in working directory)
-#
-#       modified:   hello.cpp
-#
-no changes added to commit (use "git add" and/or "git commit -a")
-```
+    $ git status                        # 現状確認
+    # On branch master
+    # Changes not staged for commit:
+    #   (use "git add <file>..." to update what will be committed)
+    #   (use "git checkout -- <file>..." to discard changes in     working directory)
+    #
+    #       modified:   hello.cpp
+    #
+    no changes added to commit (use "git add" and/or "git commit -a")
 
 "Changes not staged for commit" というメッセージが出てる。(詳しい意味は後で)
 注意すべきなのは、 git の場合 subversion と違い、編集したファイルがだけだとコミット対象にならない、ということです。再び git add するとコミット対象となります。
 
-```
-> git add hello.cpp                 # コミット対象を指定
-
-> git commit -m "hello.cpp の修正"  # コミット実行
-[master b7e8628] hello.cpp の修正
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-Warning: Your console font probably doesn't support Unicode. If you experience s
-trange characters in the output, consider switching to a TrueType font such as L
-ucida Console!
-```
+    $ git add hello.cpp                 # コミット対象を指定
+    
+    $ git commit -m "hello.cpp の修正"  # コミット実行
+    [master b7e8628] hello.cpp の修正
+     1 file changed, 1 insertion(+), 1 deletion(-)
+    
+    Warning: Your console font probably doesn't support Unicode. If you experience s
+    trange characters in the output, consider switching to a     TrueType font such as L
+    ucida Console!
 
 ## 解説
 
 ### インデックス(ステージング領域)
 
-```
-working tree      (作業領域)
- ↓
- ↓ git add
- ↓
-index             (コミット準備領域)
- ↓
- ↓ git commit
- ↓
-local repository  (自分専用リポジトリ)
- ↓
- ↓ git push  (これはまた今度説明する)
- ↓
-remote repository (共有リポジトリ)
-```
+    working tree      (作業領域)
+     ↓
+     ↓ git add
+     ↓
+    index             (コミット準備領域)
+     ↓
+     ↓ git commit
+     ↓
+    local repository  (自分専用リポジトリ)
+     ↓
+     ↓ git push  (これはまた今度説明する)
+     ↓
+    remote repository (共有リポジトリ)
+
 
 index に追加することを「ステージング」「ステージする」などとも言います。なぜインデックスがあるのかというと、たぶんこういうことだと思います。
 
@@ -184,37 +170,28 @@ Git では Subversion のようにわかりやすいリビジョン番号はつ�
 .gitignore というファイルに無視するファイル名のパターンを書きます。
 "#" で始まるとコメント行になります。
 
-```
-# emacs like editor's backup files
-*~
-*.*
-# other editor's backup files
-*.bak
-```
+    # エディタのバックアップファイルは無視
+    *~
+    *.*~
+    *.bak
 
 .gitignore 自体もリポジトリに入れておけます。
 
 ### 追跡中のファイルを全て add 
 
-```
-git add -u
-```
+    $ git add -u
 
 ### ファイルを編集したけど取り消したい場合
 
 インデックスからワーキングツリーにコピーすればよいです。
 
-```
-git checkout -- hello.cpp   # -- はオプションとファイル名を分けるセパレータ(あいまいでないなら省略可能)
-```
+    $ git checkout -- hello.cpp   # -- はオプションとファイル名を分けるセパレータ(あいまいでないなら省略可能)
 
-```
-working tree      (作業領域)
- ↑
- ↑ git checkout -- <PATH>...
- ↑
-index             (コミット準備領域)
-```
+    working tree      (作業領域)
+     ↑
+     ↑ git checkout -- <PATH>...
+     ↑
+    index             (コミット準備領域)
 
 checkout はブランチの切り替えにも使いますが、それはまた今度。
 
@@ -222,22 +199,16 @@ checkout はブランチの切り替えにも使いますが、それはまた�
 
 インデックスから削除すればよいです。
 
-```
-git rm --cached hello.cpp   # --cahced はインデックスが対象という意味
-```
+    $ git rm --cached hello.cpp   # --cahced はインデックスが対象という意味
 
 ### git add しちゃったけど取り消したい場合(新規でない場合)
 
 リポジトリの最新版からインデックスにコピーすることで、add の取り消しができます。
 
-```
-git reset hello.cpp
-```
+    $ git reset hello.cpp
 
-```
-index             (コミット準備領域)
- ↑
- ↑ git reset
- ↑
-local repository  (自分専用リポジトリ)
-```
+    index             (コミット準備領域)
+     ↑
+     ↑ git reset
+     ↑
+    local repository  (自分専用リポジトリ)
