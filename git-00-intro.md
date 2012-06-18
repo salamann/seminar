@@ -1,23 +1,26 @@
-# gitを使ってみよう その１(とりあえずローカルで)
+# gitを使ってみよう(その１)
 
 ## gitの特徴
 
-我々が今使っている Subversion に比べると git の特徴は、
+我々が今使っている Subversion に比べると git にはこんな特徴があります。
 
 * ローカルにもリポジトリがある
 * ブランチが気軽に使える
-* 履歴を修正可能
+* 柔軟なコミット(コミットのやり直しとか)
 
-詳しくはおいおい説明します。
+今日は、ローカルリポジトリの話のみです。
+後はまた今度。
 
 ## インストール
 
 ### 何をインストールする？
 
-* MSYS Git のみ ← 今回はこれ！
+* [MSYS Git](http://code.google.com/p/msysgit/downloads/list?q=full+installer+official+git) のみ ← 今回はこれ！
 * GitExtensions
 * MSYS Git + TortoiseGit
 * GitHub for Windows
+
+Git-1.7.10-preview20120409.exe を使いましょう。
 
 ### MSYS Git インストール時の選択肢
 
@@ -77,7 +80,7 @@ Windows7 の場合 c:/Users/Windowsのユーザー名/.gitconfig に上の情報
 
 ### コミットしてみる
 
-途中 warning がいろいろ出るが気にしないでください。
+途中 warning がいろいろ出るかもしれないですが気にしないでください。
 
     $ git commit -m "hello.cpp を追加    # コミット
     [master (root-commit) 68088b6] hello.cpp を追加
@@ -133,6 +136,8 @@ hello.cpp を編集してから次のようにしてみましょう。
 
 ### インデックス(ステージング領域)
 
+コミット前の
+
     working tree      (作業領域)
      ↓
      ↓ git add
@@ -148,7 +153,7 @@ hello.cpp を編集してから次のようにしてみましょう。
     remote repository (共有リポジトリ)
 
 
-index に追加することを「ステージング」「ステージする」などとも言います。なぜインデックスがあるのかというと、たぶんこういうことだと思います。
+index に追加することを「ステージング」「ステージする」などとも言います。いきなり。
 
 * コミット対象を吟味するため(GUIツールだと旨みが少ないかも)
 * 部分的なステージングができる(git add -p)
