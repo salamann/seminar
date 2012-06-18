@@ -40,8 +40,8 @@ Git-1.7.10-preview20120409.exe を使いましょう。
     $ git config --global user.name "Nobita Nobi"
     $ git config --global user.email "nobita.nobi@example.com"
 
-Windows7 の場合 c:/Users/<username>/.gitconfig に上の情報が格納されます。
-WindowsXP の場合 C:/Documents and Settings/<username>/.gitconfig です。
+Windows7 の場合 c:/Users/*username*/.gitconfig に上の情報が格納されます。
+WindowsXP の場合 C:/Documents and Settings/*username*/.gitconfig です。
 
     [user]
         name = Nobita Nobi
