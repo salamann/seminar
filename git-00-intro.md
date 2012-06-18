@@ -61,7 +61,7 @@ WindowsXP の場合 C:\Documents and Settings\<username>\.gitconfig です。
 
 Subversion の .svn は作業ベースのリビジョンの情報しか保持していませんが、 .git はリポジトリの全情報を持っています。
 
-## ファイルを追加してみる
+### ファイルを追加してみる
 
 エディタで hello.cpp を作り、gitの管理対象にしてみましょう。
 
@@ -182,6 +182,10 @@ Git では Subversion のようにわかりやすいリビジョン番号はつ�
 特定のファイルのみの変更点を知りたい場合。
 
     $ git diff hello.cpp
+
+インデックスとリポジトリの差分を見たい場合。
+
+    $ git diff --cached
 
 ### 追跡中のファイルを全て add 
 
