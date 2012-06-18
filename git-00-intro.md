@@ -84,8 +84,8 @@ Windows7 の場合 c:/Users/Windowsのユーザー名/.gitconfig に上の情報
      1 file changed, 7 insertions(+)
      create mode 100644 hello.cpp
     
-    Warning: Your console font probably doesn't support Unicode. If     you experience s
-    trange characters in the output, consider switching to a     TrueType font such as L
+    Warning: Your console font probably doesn't support Unicode. If you experience s
+    trange characters in the output, consider switching to a TrueType font such as L
     ucida Console!
     
     $ git status                         # 確認
@@ -110,7 +110,7 @@ hello.cpp を編集してから次のようにしてみましょう。
     # On branch master
     # Changes not staged for commit:
     #   (use "git add <file>..." to update what will be committed)
-    #   (use "git checkout -- <file>..." to discard changes in     working directory)
+    #   (use "git checkout -- <file>..." to discard changes in working directory)
     #
     #       modified:   hello.cpp
     #
@@ -126,7 +126,7 @@ hello.cpp を編集してから次のようにしてみましょう。
      1 file changed, 1 insertion(+), 1 deletion(-)
     
     Warning: Your console font probably doesn't support Unicode. If you experience s
-    trange characters in the output, consider switching to a     TrueType font such as L
+    trange characters in the output, consider switching to a TrueType font such as L
     ucida Console!
 
 ## 解説
