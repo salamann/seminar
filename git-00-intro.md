@@ -197,11 +197,13 @@ Git では Subversion のようにわかりやすいリビジョン番号はつ�
 
     $ git checkout -- hello.cpp   # -- はオプションとファイル名を分けるセパレータ(あいまいでないなら省略可能)
 
-    working tree      (作業領域)
-     ↑
-     ↑ git checkout -- <PATH>...
-     ↑
-    index             (コミット準備領域)
+```
+working tree      (作業領域)
+ ↑
+ ↑ git checkout -- <PATH>...
+ ↑
+index             (コミット準備領域)
+```
 
 checkout はブランチの切り替えにも使いますが、それはまた今度。
 
@@ -217,11 +219,13 @@ checkout はブランチの切り替えにも使いますが、それはまた�
 
     $ git reset hello.cpp
 
-    index             (コミット準備領域)
-     ↑
-     ↑ git reset
-     ↑
-    local repository  (自分専用リポジトリ)
+```
+index             (コミット準備領域)
+ ↑
+ ↑ git reset
+ ↑
+local repository  (自分専用リポジトリ)
+```
 
 ### 無視するファイルを指定したい
 
