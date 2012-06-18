@@ -1,17 +1,27 @@
-# gitを使ってみよう(とりあえずローカルで)
+# gitを使ってみよう その１(とりあえずローカルで)
+
+## gitの特徴
+
+我々が今使っている Subversion に比べると git の特徴は、
+
+* ローカルにもリポジトリがある
+* ブランチが気軽に使える
+* 履歴を修正可能
+
+詳しくはおいおい説明します。
 
 ## インストール
 
 インストールの選択肢
 
-* MSYS Git のみ <= 今回はこれで！
+* MSYS Git のみ ← 今回はこれ！
 * GitExtensions
 * MSYS Git + TortoiseGit
 * GitHub for Windows
 
 ### MSYS Git インストール時の選択肢
 
-何が正解とかないけど、今回はこうしてみよう。
+何が正解とかないけど、今回はこうしてみましょう。
 
 * インストールするコンポーネントはデフォルト
 * コマンドプロンプトでも使えるようにする (Run Git from Windows Command Prompt)
@@ -39,51 +49,195 @@ Windows7 の場合 c:/Users/Windowsのユーザー名/.gitconfig に上の情報
 
 直接 .gitconfig を編集してもかまいません。
 
-## ローカルリポジトリを作る
+## 使ってみる
+### ローカルリポジトリを作る
 
 ```
 > mkdir git-renshu         # 練習用ディレクトリの作成
 > cd git-renshu
 > git init                 # リポジトリの作成
+Initialized empty Git repository in C:/home/work/git-renshu/.git/
 ```
 
-.git というディレクトリができているはず。このディレクトリの中にローカルリポジトリが格納されている。
+.git というディレクトリができているはずです。このディレクトリの中にローカルリポジトリが格納されています。
 
 ## ファイルを追加してみる
 
-エディタで hello.cpp を作り、gitの管理対象にしてみよう。
+エディタで hello.cpp を作り、gitの管理対象にしてみましょう。
 
 ```
 > git add hello.cpp        # ファイルを管理対象として追加
+
 > git status               # 確認
-# On branch master 
-# Changes to be commited:
-#   (use "git reset HEAD <file>..." to unstage)
+# On branch master
 #
-#       modified:   hello.cpp
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#       new file:   hello.cpp
+#
 ```
 
-"Changes to be commited" は 「次にコミットされるのはこのファイルですよ」 という意味
+"Changes to be commited" は 「コミット候補はこのファイルですよ」 という意味です。
 
-## コミットしてみる
+### コミットしてみる
+
+途中 warning がいろいろ出るが気にしないでください。
 
 ```
 > git commit -m "hello.cpp を追加    # コミット
+[master (root-commit) 68088b6] hello.cpp を追加
+ 1 file changed, 7 insertions(+)
+ create mode 100644 hello.cpp
+
+Warning: Your console font probably doesn't support Unicode. If you experience s
+trange characters in the output, consider switching to a TrueType font such as L
+ucida Console!
+
 > git status                         # 確認
+# On branch master
+nothing to commit (working directory clean)
+
 > git log                            # ログ確認
-commit 286148bf2fe4d046bebf56fece6aa1917c70a1b4
+WARNING: terminal is not fully functional
+commit 68088b64d475c39f5cec034b2b050440d284796b
 Author: Nobita Nobi <nobita.nobi@example.com>
-Date:   Mon Jun 11 09:06:41 2012 +0900
+Date:   Tue Jun 12 10:40:15 2012 +0900
 
     hello.cpp を追加
 ```
 
-## また編集してコミットしてみる
+68088b64d475c39f5cec034b2b050440d284796b は Subversion でいうリビジョン番号のようなものです。(また後で説明します。)
 
-#
+### また編集してコミットしてみる
+
+hello.cpp を編集してから次のようにしてみましょう。
+
+```
+> git status                        # 現状確認
+# On branch master
 # Changes not staged for commit:
 #   (use "git add <file>..." to update what will be committed)
 #   (use "git checkout -- <file>..." to discard changes in working directory)
 #
-#       modified:   git-00-intro.md
+#       modified:   hello.cpp
 #
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+"Changes not staged for commit" というメッセージが出てる。(詳しい意味は後で)
+注意すべきなのは、 git の場合 subversion と違い、編集したファイルがだけだとコミット対象にならない、ということです。再び git add するとコミット対象となります。
+
+```
+> git add hello.cpp                 # コミット対象を指定
+
+> git commit -m "hello.cpp の修正"  # コミット実行
+[master b7e8628] hello.cpp の修正
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+Warning: Your console font probably doesn't support Unicode. If you experience s
+trange characters in the output, consider switching to a TrueType font such as L
+ucida Console!
+```
+
+## 解説
+
+### インデックス(ステージング領域)
+
+```
+working tree      (作業領域)
+ ↓
+ ↓ git add
+ ↓
+index             (コミット準備領域)
+ ↓
+ ↓ git commit
+ ↓
+local repository  (自分専用リポジトリ)
+ ↓
+ ↓ git push  (これはまた今度説明する)
+ ↓
+remote repository (共有リポジトリ)
+```
+
+index に追加することを「ステージング」「ステージする」などとも言います。なぜインデックスがあるのかというと、たぶんこういうことだと思います。
+
+* コミット対象を吟味するため(GUIツールだと旨みが少ないかも)
+* 部分的なステージングができる(git add -p)
+
+例えば、バグ修正と新規機能追加を一緒にしてしまったけど、分けてコミットしたいときなどに便利です。
+
+### リビジョン
+
+Git では Subversion のようにわかりやすいリビジョン番号はつきません。68088b64d475c39f5cec034b2b050440d284796b のようなSHA-1ハッシュ値(コミット内容から計算されたユニークな数値)でリビジョンを表します。
+
+なぜこんなわかりにくい番号になっているかというと Git が「分散」バージョン管理システムであるためです。
+
+リビジョンを指定した操作をするときは、このハッシュ値を全部入力しなくても大丈夫です。先頭4桁くらい書けば識別してくれます。
+
+## TIPS
+
+### 無視するファイルを指定したい
+
+.gitignore というファイルに無視するファイル名のパターンを書きます。
+"#" で始まるとコメント行になります。
+
+```
+# emacs like editor's backup files
+*~
+*.*
+# other editor's backup files
+*.bak
+```
+
+.gitignore 自体もリポジトリに入れておけます。
+
+### 追跡中のファイルを全て add 
+
+```
+git add -u
+```
+
+### ファイルを編集したけど取り消したい場合
+
+インデックスからワーキングツリーにコピーすればよいです。
+
+```
+git checkout -- hello.cpp   # -- はオプションとファイル名を分けるセパレータ(あいまいでないなら省略可能)
+```
+
+```
+working tree      (作業領域)
+ ↑
+ ↑ git checkout -- <PATH>...
+ ↑
+index             (コミット準備領域)
+```
+
+checkout はブランチの切り替えにも使いますが、それはまた今度。
+
+### git add しちゃったけど取り消したい場合(新規追加の場合)
+
+インデックスから削除すればよいです。
+
+```
+git rm --cached hello.cpp   # --cahced はインデックスが対象という意味
+```
+
+### git add しちゃったけど取り消したい場合(新規でない場合)
+
+リポジトリの最新版からインデックスにコピーすることで、add の取り消しができます。
+
+```
+git reset hello.cpp
+```
+
+```
+index             (コミット準備領域)
+ ↑
+ ↑ git reset
+ ↑
+local repository  (自分専用リポジトリ)
+```
