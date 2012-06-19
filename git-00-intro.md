@@ -173,6 +173,18 @@ Git では Subversion のようにわかりやすいリビジョン番号はつ�
 
 ## TIPS
 
+### シンプルに状態表示
+
+-s オプションをつけるとシンプルな表示になります。
+左端の文字がインデックスの状態。２文字目がワーキングツリーの状態。
+
+```
+$ git status -s
+ M hello.cpp
+M  good-morning.cpp
+?? good-bye.cpp
+```
+
 ### 比較
 
 作業ツリー(working tree)で変更されている部分を知りたい場合。

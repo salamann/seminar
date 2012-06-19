@@ -1,4 +1,4 @@
-# メモ
+# Gitメモ
 
 ## やりたいこと
 
@@ -171,6 +171,17 @@ followingOptions=-f revert-buffer-utf8n
 ```
 $ git difftool [FILENAME]
 ```
+
+### ページャーとして lv を使う
+
+.gitconfig に以下の内容を追加
+
+```
+[core]
+    pager = lv -Iu8
+```
+
+http://mattn.kaoriya.net/software/20111031104749.htm
 
 ## 参考文献
 
