@@ -86,7 +86,7 @@ Subversion の .svn は作業ベースのリビジョンの情報しか保持し
 
 途中 warning がいろいろ出るかもしれないですが気にしないでください。
 
-    $ git commit -m "hello.cpp を追加    # コミット
+    $ git commit -m "hello.cpp を追加"    # コミット
     [master (root-commit) 68088b6] hello.cpp を追加
      1 file changed, 7 insertions(+)
      create mode 100644 hello.cpp
