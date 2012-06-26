@@ -29,11 +29,12 @@
 * リビジョンは直線的に並んでいて、明示的なブランチ(分岐)という概念はない
 * コピーされたディレクトリをブランチとして扱っているだけ
 * ブランチの概念があいまいなのでマージは苦手
-![svnのリビジョン](images/svn-revisions.png)
+![svnのブランチ](https://github.com/shunichi/seminar/raw/seminar02/images/svn-branch.png)
+![svnのリビジョン](https://github.com/shunichi/seminar/raw/seminar02/images/svn-revisions.png)
 
 ## Git のリビジョンとブランチ
 
 * リビジョン(コミット)が分岐したり合流したりするため、本当の分ブランチがある
 * ブランチはリビジョンの枝の先端につけられた印
 * ブランチの関係がはっきりしているのでマージがうまくいきやすい
-![Gitのリビジョン](images/git-revisions.png)
+![Gitのリビジョン](https://github.com/shunichi/seminar/raw/seminar02/images/git-revisions.png)
