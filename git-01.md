@@ -77,6 +77,6 @@ Git では、オリジナルでの変更を追従するだけのブランチと�
 
 ## 参考
 
-* ![Pro Git (3. Gitのブランチ機能)](http://git-scm.com/book/ja/Git-%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E6%A9%9F%E8%83%BD)
-* ![A successful Git branching model(日本語訳)](http://keijinsonyaban.blogspot.jp/2010/10/successful-git-branching-model.html)
-* ![図解 Git](http://marklodato.github.com/visual-git-guide/index-ja.html)
+* [Pro Git (3. Gitのブランチ機能)](http://git-scm.com/book/ja/Git-%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E6%A9%9F%E8%83%BD)
+* [A successful Git branching model(日本語訳)](http://keijinsonyaban.blogspot.jp/2010/10/successful-git-branching-model.html)
+* [図解 Git](http://marklodato.github.com/visual-git-guide/index-ja.html)
