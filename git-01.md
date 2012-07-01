@@ -66,6 +66,14 @@ Git では、リリース(準備用)ブランチを作ることで、リリー�
 
 Git では、オリジナルでの変更を追従するだけのブランチと、カスタマイズ用変更だけをコミットするブランチを別々に作ることで、カスタムとオリジナルへの追従の両立が容易になります。
 
+![カスタム版のブランチ](https://github.com/shunichi/seminar/raw/seminar02/images/git-custom-branch.png)
+
+git merge を使ってオリジナル版(master)の変更をカスタム版(custom)にマージすることもできますが、このような場合には git rebase を使ったほうがよいです。
+
+オリジナルの変更を何回も取り込んだときに、 merge だとカスタム版ブランチ(custom)にオリジナル版の変更が混ざってしまいますが、 rebase ならばカスタム版での変更点のみを独立させておけますので、わかりやすいです。
+
+![カスタム版のブランチ(merge の場合)](https://github.com/shunichi/seminar/raw/seminar02/images/git-custom-merge.png)
+
 ## まとめ
 
 * Gitではブランチの構造がわかりやすいので気軽にブランチを作っても大丈夫
