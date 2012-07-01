@@ -60,6 +60,8 @@ Subversion での開発では、重要なリリース(クライアントへの�
 
 Git では、リリース(準備用)ブランチを作ることで、リリースのための作業をしつつ、そのリリースとは関係ない将来のための作業を同時に行うことができます。
 
+![リリースブランチ](https://github.com/shunichi/seminar/raw/seminar02/images/git-release-branch.png)
+
 リリースブランチで行ったバグ修正などは、開発用の本線ブランチにも適宜マージします。
 
 ## カスタム版をつくって維持する
@@ -72,3 +74,9 @@ Git では、オリジナルでの変更を追従するだけのブランチと�
 
 * Gitではブランチの構造がわかりやすいので気軽にブランチを作っても大丈夫
 * ブランチを使うといろいろ楽になる
+
+## 参考
+
+* ![Pro Git (3. Gitのブランチ機能)](http://git-scm.com/book/ja/Git-%E3%81%AE%E3%83%96%E3%83%A9%E3%83%B3%E3%83%81%E6%A9%9F%E8%83%BD)
+* ![A successful Git branching model(日本語訳)](http://keijinsonyaban.blogspot.jp/2010/10/successful-git-branching-model.html)
+* ![図解 Git](http://marklodato.github.com/visual-git-guide/index-ja.html)
