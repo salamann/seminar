@@ -32,8 +32,11 @@
 
 ## Git のリビジョンとブランチ
 
-* リビジョン(コミット)が分岐したり合流したりするため、本当の分ブランチがある
+* リビジョン(コミット)が分岐したり合流したりするため、本当のブランチがある
 * ブランチはリビジョンの枝の先端につけられた印
+
+![Gitのブランチ](https://github.com/shunichi/seminar/raw/seminar02/images/git-branch.png)
+
 * ブランチの関係がはっきりしているのでマージがうまくいきやすい
 
 ![Gitのリビジョン](https://github.com/shunichi/seminar/raw/seminar02/images/git-revisions.png)
