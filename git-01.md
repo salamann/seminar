@@ -18,22 +18,22 @@
 * リビジョンは直線的に並んでいて、明示的なブランチ(分岐)という概念はない
 * コピーされたディレクトリをブランチとして扱っているだけ
 
-![svnのブランチ](https://github.com/shunichi/seminar/raw/seminar02/images/svn-branch.png)
+![svnのブランチ](https://github.com/shunichi/seminar/raw/master/images/svn-branch.png)
 
 * ブランチの概念があいまいなのでマージは苦手
 
-![svnのリビジョン](https://github.com/shunichi/seminar/raw/seminar02/images/svn-revisions.png)
+![svnのリビジョン](https://github.com/shunichi/seminar/raw/master/images/svn-revisions.png)
 
 ## Git のリビジョンとブランチ
 
 * リビジョン(コミット)が分岐したり合流したりするため、本当のブランチがある
 * ブランチはリビジョンの枝の先端につけられた印
 
-![Gitのブランチ](https://github.com/shunichi/seminar/raw/seminar02/images/git-branch.png)
+![Gitのブランチ](https://github.com/shunichi/seminar/raw/master/images/git-branch.png)
 
 * ブランチの関係がはっきりしているのでマージがうまくいきやすい
 
-![Gitのリビジョン](https://github.com/shunichi/seminar/raw/seminar02/images/git-revisions.png)
+![Gitのリビジョン](https://github.com/shunichi/seminar/raw/master/images/git-revisions.png)
 
 * 中央リポジトリ(共有リポジトリ)にすべてのブランチがあるわけではない(ローカルリポジトリのブランチは push しなければ、中央リポジトリには伝わらない)
 
@@ -42,7 +42,7 @@
 Gitではブランチとマージが手軽にできるため、細かくブランチを作ることがよくあります。
 例えば、一つのバグ修正や一つの新機能の実装作業ごとにブランチを作ります。
 
-![フィーチャーブランチ](https://github.com/shunichi/seminar/raw/seminar02/images/git-feature-branch.png)
+![フィーチャーブランチ](https://github.com/shunichi/seminar/raw/master/images/git-feature-branch.png)
 
 Subversion ではあまり細かいブランチを作成せずに trunk で作業することが多く、コミットは開発者全員に影響してしまいます。何日もかかる作業の途中では正しく動作しないソースやコンパイルすら通らないソースがあるため、コミットすることはできません。
 
@@ -56,7 +56,7 @@ Subversion での開発では、重要なリリース(クライアントへの�
 
 Git では、リリース(準備用)ブランチを作ることで、リリースのための作業をしつつ、そのリリースとは関係ない将来のための作業を同時に行うことができます。
 
-![リリースブランチ](https://github.com/shunichi/seminar/raw/seminar02/images/git-release-branch.png)
+![リリースブランチ](https://github.com/shunichi/seminar/raw/master/images/git-release-branch.png)
 
 リリースブランチで行ったバグ修正などは、開発用の本線ブランチにも適宜マージします。
 
@@ -66,13 +66,13 @@ Git では、リリース(準備用)ブランチを作ることで、リリー�
 
 Git では、オリジナルでの変更を追従するだけのブランチと、カスタマイズ用変更だけをコミットするブランチを別々に作ることで、カスタムとオリジナルへの追従の両立が容易になります。
 
-![カスタム版のブランチ](https://github.com/shunichi/seminar/raw/seminar02/images/git-custom-branch.png)
+![カスタム版のブランチ](https://github.com/shunichi/seminar/raw/master/images/git-custom-branch.png)
 
 git merge を使ってオリジナル版(master)の変更をカスタム版(custom)にマージすることもできますが、このような場合には git rebase を使ったほうがよいです。
 
 オリジナルの変更を何回も取り込んだときに、 merge だとカスタム版ブランチ(custom)にオリジナル版の変更が混ざってしまいますが、 rebase ならばカスタム版での変更点のみを独立させておけますので、わかりやすいです。
 
-![カスタム版のブランチ(merge の場合)](https://github.com/shunichi/seminar/raw/seminar02/images/git-custom-merge.png)
+![カスタム版のブランチ(merge の場合)](https://github.com/shunichi/seminar/raw/master/images/git-custom-merge.png)
 
 ## まとめ
 
