@@ -30,7 +30,9 @@ $ はプロンプトのつもりで書いてますので、入力しないでく
 
     $ mkdir git-work
     $ cd git-work
-    $ git clone https://github.com/shunichi/git-practice.git
+    $ git clone https://ユーザー名@github.com/shunichi/git-practice.git
+
+ユーザー名 のところは自分の GitHub のユーザー名を当てはめてください。ユーザー名@ は書かなくても clone できるのですけど、書いておくと後で push するときにユーザー名の入力が省けます。
 
 リポジトリ名と同じ名前のディレクトリが作られ、その中にローカルリポジトリ(.git)と作業ツリーができます。
 
