@@ -1,6 +1,6 @@
-# Gitを使ってみよう(その３) - 共同作業
+# Gitを使ってみよう(その３) - 共同作業してみよう
 
-## やること
+## 今日やること
 
 * GitHub のアカウントを作る
 * GitHub の練習用リポジトリを clone する
@@ -30,7 +30,7 @@ $ はプロンプトのつもりで書いてますので、入力しないでく
 
     $ mkdir git-work
     $ cd git-work
-    $ git clone https://github.com/shunichi/test.git
+    $ git clone https://github.com/shunichi/git-practice.git
 
 リポジトリ名と同じ名前のディレクトリが作られ、その中にローカルリポジトリ(.git)と作業ツリーができます。
 
@@ -55,9 +55,9 @@ GitHubで内容が見えるようにしたいので、ファイルの文字コ�
     $ git push
     Username for 'https://github.com':
     Password for 'https://shunichi@github.com':
-    To https://github.com/shunichi/test.git
+    To https://github.com/shunichi/git-practice.git
      ! [rejected]        master -> master (non-fast-forward)
-    error: failed to push some refs to 'https://github.com/shunichi/test.git'
+    error: failed to push some refs to 'https://github.com/shunichi/git-practice.git'
     hint: Updates were rejected because the tip of your current branch is behind
     hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')
     hint: before pushing again.
@@ -109,7 +109,7 @@ git pull すると、リモートのコミットとローカルのコミット�
     remote: Compressing objects: 100% (2/2), done.
     remote: Total 3 (delta 0), reused 3 (delta 0)
     Unpacking objects: 100% (3/3), done.
-    From https://github.com/shunichi/test
+    From https://github.com/shunichi/git-practice
        e88d567..c2aa0f2  master     -> origin/master
     Merge made by the 'recursive' strategy.
      shunichi.txt |    2 ++
@@ -134,7 +134,7 @@ pull するとこんな感じになります。
 git log --graph --oneline を実行すると、どんな風にマージされたかを確認することができます。(下の出力例は上の図のコミットのされ方とは異なりますので注意)
 
     $ git log --graph --oneline
-    *   f71aa0f Merge branch 'master' of https://github.com/shunichi/test
+    *   f71aa0f Merge branch 'master' of https://github.com/shunichi/git-practice
     |\  
     | * c2aa0f2 俺様のファイルを追加
     * | 024d3db すごいファイルの追加
@@ -154,14 +154,14 @@ Git はローカルリポジトリにコミットできるので、リモート�
 
 ためしにわざとコンフリクトを起こしてみましょう。
 
-pull してから、お互いに自分のファイルと隣の人のファイルの両方を編集して、ローカルリポジトリに commit してから、リモートリポジトリに push してみましょう。
+まず pull して最新の状態にしてください。その後、お互いに自分のファイルと隣の人のファイルの両方を編集して、ローカルリポジトリに commit して、リモートリポジトリに push してみましょう。
 
     $ git commit -am "感動的な文章を追加"   # -m でなく -am とすると add もしてくれる
     $ git pull
     $ git push
 
 タイミングによっては pull の時点でマージに失敗するかもしれません。
-CONFLICT と書いてある行にコンフリクトしたファイル名が表示されています。
+CONFLICT と書いてある行にコンフリクトしたファイル名が表示されています。  
 (失敗しなかったら、相方が自分のファイルを push 完了するまでしばらくお待ちください。)
 
     $ git pull
@@ -169,13 +169,13 @@ CONFLICT と書いてある行にコンフリクトしたファイル名が表�
     remote: Compressing objects: 100% (2/2), done.
     remote: Total 3 (delta 0), reused 3 (delta 0)
     Unpacking objects: 100% (3/3), done.
-    From https://github.com/shunichi/test
+    From https://github.com/shunichi/git-practice
        c2aa0f2..d3f170a  master     -> origin/master
     Auto-merging shunichi.txt
     CONFLICT (content): Merge conflict in shunichi.txt
     Automatic merge failed; fix conflicts and then commit the result.
 
-git status を実行すると Unmerged paths というようにマージされていないファイルが表示されます。
+git status を実行してみると Unmerged paths: というようにマージされていないファイルが表示されます。
 
     $ git status
     # On branch master
@@ -220,4 +220,9 @@ git status を実行すると Unmerged paths というようにマージされ�
 
     $ git merge --abort
 
-もう一度 pull すればやりなおせます。
+もう一度 pull すれば、またコンフリクトが起きるので、やり直しましょう。
+
+## まとめ
+
+* 多人数で Git を使っているときは pull してから push する
+* pull で自動マージに失敗したら手動でコンフリクトを解消しよう
