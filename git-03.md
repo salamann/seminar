@@ -124,9 +124,9 @@ git push して共有リポジトリに自分の変更を反映させます。
                   bugfix-0123
 ```
 
-bugfix-0123 というブランチ自体は共有リポジトリには伝わりませんが、ブランチで行ったコミットは伝わります。
-GitでのブランチはコミットYについた印にすぎません。共有する必要がなければ共有リポジトリに伝える必要はないのです。
-もちろん、共有したいブランチであれば伝えることもできます。
+master ブランチを push しただけでは bugfix-0123 というブランチ自体は共有リポジトリには伝わりませんが、ブランチで行ったコミットは伝わります。
+
+Gitでのブランチはコミット(図のY)についた印にすぎないので、共有する必要がなければ共有リポジトリに伝える必要はありません。好き勝手にローカルでブランチを作っても、共有リポジトリにブランチが増える心配はありません。
 
 ## GUIツール
 
@@ -144,9 +144,9 @@ TortoiseGit は TortoiseSVN っぽく git を使うためのツール。
 ### Git Extensions
 
 試したバージョンは 2.31。
-日本語化されているが、GUIが残念な感じ。
+日本語化されているが、GUIが残念な感じです。
 コミットメッセージ入力欄で日本語入力がおかしいです。
-(勝手に確定されてしまい使い物にならない。エディタで書いてコピペならいける。)
+(勝手に確定されてしまい使い物になりません。エディタで書いてコピペはできます。)
 
 ### GitHub for Windows
 
@@ -163,7 +163,7 @@ Windows とそれ以外(Unix系, Mac)では慣習的に異なる改行コード�
 
 Git では異なるOS間の連携を行うために、コミットやチェックアウトの際に改行コードを自動変換する設定があります。(core.autocrlf)
 
-詳しくは [Pro Git|http://git-scm.com/book/ja/Git-%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA-Git-%E3%81%AE%E8%A8%AD%E5%AE%9A] を見てほしいのですが、この core.autocrlf に設定可能な値が３種類あります。
+詳しくは [Pro Git](http://git-scm.com/book/ja/Git-%E3%81%AE%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA-Git-%E3%81%AE%E8%A8%AD%E5%AE%9A) を見てほしいのですが、この core.autocrlf に設定可能な値が３種類あります。
 
 * *false* 改行コード変換しない(勉強会の第一回の設定)
 * *true*  改行コード変換する(デフォルト)
@@ -181,9 +181,9 @@ $ git config --global core.autocrlf false
 
 設定は三種類あり、下のほうの設定のほうが優先です。
 
-1. システム設定(C:\Program Files (x86)\Git\etc\gitconfig)
-2. ユーザー設定(Win7 では C:\Users\ユーザー名\.gitconfig  WinXP では C:/Documents and Settings\ユーザー名\.gitconfig)
-3. リポジトリ設定(.git\config)
+1. システム設定(C:/Program Files (x86)/Git/etc/gitconfig)
+2. ユーザー設定(Win7 では C:/Users/ユーザー名/.gitconfig  WinXP では C:/Documents and Settings/ユーザー名/.gitconfig)
+3. リポジトリ設定(.git/config)
 
 それぞれ次のように設定可能です。
 
