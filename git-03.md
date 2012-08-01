@@ -57,7 +57,7 @@ $ git log --oneline --graph
 図で説明します。
 
 ```
-git pull 前
+【git pull 前】
                   master
                   v
 リモート A--B--C--D
@@ -74,7 +74,7 @@ git pull 前
 git pull で共有リポジトリのmasterブランチの変更を取り込むと、次のような状態になります。
 
 ```
-git pull 後
+【git pull 後】
                   master
                   v
 リモート A--B--C--D
@@ -91,7 +91,7 @@ git pull 後
 そして git merge します。
 
 ```
-git merge 後
+【git merge 後】
                   master
                   v
 リモート A--B--C--D
@@ -108,7 +108,7 @@ git merge 後
 git push して共有リポジトリに自分の変更を反映させます。
 
 ```
-git push 後
+【git push 後】
                      master
                      v
 リモート A--B--C--D--E
